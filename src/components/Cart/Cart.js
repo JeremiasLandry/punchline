@@ -17,7 +17,7 @@ const Cart = () => {
   
 
   if (cart.length === 0) {
-    return <div className="container my-5 d-flex justify-content-center flex-column align-items-center">
+    return <div className="container my-5 d-flex justify-content-start flex-column align-items-center" style={{height:100+'vh'}}>
                 <h2 className="mainTitle">TU CARRITO ESTA VACÍO</h2>
                 <hr/>
                 <h5>Vuelve al shop para comprar</h5>
@@ -26,7 +26,7 @@ const Cart = () => {
   }
 
   return (
-      <div className="container my-5" style={{maxWidth:800+'px'}}>
+      <div className="container my-5" style={{maxWidth:800+'px',height:100+'vh'}}>
           <h2 className='mainTitle'>TU COMPRA</h2>
           <hr/>
 
