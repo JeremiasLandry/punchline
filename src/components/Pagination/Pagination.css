@@ -1,0 +1,23 @@
+.pagination a{
+    border:2px solid #ed008c;
+    border-radius:0 !Important;
+    color:#ed008c;
+}
+.pagination a:hover{
+    background-color:#ed008c !Important;
+    border-color: #ed008c;
+    color: #fff;
+    outline: none
+}
+.page-link:focus{
+    -webkit-box-shadow: 0 0 0 30px #ed008c inset !important;
+    outline:none !important;
+    color: #ffffff !important;
+    background-color: #ed008c !important;
+}
+.page-link:active{
+    box-shadow: 0px;
+    outline:none !important;
+    color: #ffffff !important;
+    background-color: #ed008c !important;
+}

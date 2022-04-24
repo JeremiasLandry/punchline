@@ -1,0 +1,31 @@
+.cartWidget-container{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 10px;
+}
+.cartWidget-icon{
+    display: flex;
+    margin: 5px;
+    justify-content: center;
+    color: #ed008c;
+    padding-right: 5px;
+}
+
+.cartWidget-icon:hover{
+    color: #fff;
+}
+
+.cartCount{
+    font-size:1em;
+    font-weight: 500;
+
+}
+@media screen and (max-width: 991px){
+    .cartWidget-container{
+        justify-content: flex-start;
+        padding-left:20px;
+    }
+}

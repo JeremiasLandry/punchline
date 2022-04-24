@@ -1,0 +1,12 @@
+.warning-container{
+    display: flex;
+    justify-content:flex-start;
+    align-items:flex-start;
+    align-content:flex-start;
+}
+.warning-container h3{
+    margin:0;
+}
+.warning-container span{
+    padding-left: 5px;
+}

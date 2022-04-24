@@ -1,0 +1,35 @@
+.card{
+    cursor: pointer;
+    box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.14);
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.14);
+    -moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.14);
+}
+
+.card-body{
+    min-height:166px;
+    justify-content:space-between !important;
+    text-decoration:none !important;
+    
+}
+.cardLink{
+    text-decoration:none;
+    color: #000
+}
+.cardLink:hover{
+    color:#000;
+}
+.showDetails-btn{
+    text-decoration: none;
+    background-color:#ed008c;
+    border-color:#ed008c;
+    border-radius:0;
+    width: 100%;
+    font-weight: 500;
+    font-size: 1.1em;
+    font-family: 'Oswald', sans-serif;
+}
+.showDetails-btn:hover{
+    background-color:#bd006e;
+    border-color:#bd006e;
+    color:#fff;
+}

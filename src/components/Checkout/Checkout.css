@@ -1,0 +1,54 @@
+.checkout-container{
+    display:flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items:center;
+    max-width: 600px;
+    height:100vh;
+}
+
+.checkout-form{
+    border: none;
+    border-radius:0;
+    border-bottom: 2px solid #ed008c;
+    outline:none;
+    font-family: 'Oswald', sans-serif;
+    padding: 10px 5px ;
+    width: 100%;
+    color:#ed008c;
+    margin-bottom:25px;
+}
+.checkout-form::placeholder{
+    color: #ed008c;
+    font-weight:500;
+}
+.checkout-form:focus{
+    outline:0 !important;
+    box-shadow: 0px -22px 16px -23px rgba(237,0,140,0.84) inset;
+    -webkit-box-shadow: 0px -22px 16px -23px rgba(237,0,140,0.84) inset;
+    -moz-box-shadow: 0px -22px 16px -23px rgba(237,0,140,0.84) inset;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+.backHome{
+    color:#ed008c;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top:20px;
+    transition:transform .3s ease-in-out;
+}
+.backHome:hover{
+    color:#e968b3;
+    transform: scale(.9,.9);
+}

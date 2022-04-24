@@ -1,0 +1,117 @@
+
+.detail-page{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 50px;
+    flex-direction: column;
+    background-color: rgb(245, 245, 245);
+    height: 100vh;
+    padding:50px 5%;
+}
+.getBack-btn{
+    margin: 0;
+    outline:none;
+    border-radius: 0px;
+    background-color:transparent;
+    color:#ed008c;
+    border: none;
+    padding:10px;
+    transition: all 0.2s ease-in;
+    align-self: flex-start;
+}
+.getBack-btn:hover{
+    transform:scale(.97);
+    opacity:.9;
+}
+.detailCard-container{
+   flex-direction: column;
+   justify-content: center;
+}
+.detailCard{
+    display: flex;
+    flex-direction: column;
+    padding:0 5px;
+    background-color:#212529;
+    color: #fff;
+    justify-content:space-between;
+}
+.detailCard h2{
+    padding-top:25px;
+}
+.price{
+    font-size: 1.7em;
+}
+.sizes-btn{
+    background-color: transparent;
+    color: #ed008c;
+    border: 2px solid #ed008c;
+    margin-right:5px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2em;
+}
+.sizes-btn:hover{
+    background-color: #ed008c;
+    color: #212529;
+
+}
+.fuente{
+    font-size: 1.2em;
+    font-weight: 100;
+}
+.checkInfo{
+    font-size:.8em;
+    margin: 3px 0;
+}
+.linkBtn{
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.linkBtn:hover{
+    color: #fff;
+}
+@media screen and (max-width:860px){
+    html{
+        overflow-x: hidden;
+    }
+    .detail-page{
+        padding: 0;
+        height:100%;
+    }
+    .responsiveCard{
+        display:flex;
+        flex-direction: column;
+        margin: 0;
+    }
+    .detailCard-container{
+        max-width: 990px;
+        height:100%;
+    }
+    .detailCard{
+        font-size: 1.1em;
+        min-height:100%;
+    }
+    .price{
+        font-size: 1.1em;
+        margin: 2px;
+    }
+    .fuente{
+        font-size: 1em;
+        font-weight: 100;
+        margin:2px;
+    }
+    .checkInfo{
+        font-size:.6em;
+        margin:0;
+    }
+    .getBack-btn{
+        padding-left:15px;
+    }
+}
+@media screen and (max-width:500px){
+    .detail-page{
+        padding: 0;
+        height:100%;
+    }
+}

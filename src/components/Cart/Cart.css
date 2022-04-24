@@ -1,0 +1,26 @@
+.clearCart-btn{
+    background-color: transparent;
+    color: #ed008c;
+    border: 2px solid #ed008c;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2em;
+    border-radius: 0;
+    padding: 6px 15px;
+    margin-bottom:5.5px;
+}
+
+.clearCart-btn:hover{
+    background-color: #ed008c;
+    color: #fff;
+}
+.deleteItem-btn{
+    max-width:200px;
+    background-color:#ed008c;
+    border-color:#ed008c;
+    border-radius:0;
+    font-family: 'Oswald';
+}
+.deleteItem-btn:hover{
+    background-color:#db57a4;
+    border-color:#db57a4;
+}
