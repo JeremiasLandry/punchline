@@ -48,8 +48,8 @@ const ItemDetail = ({productDetail}) => {
     <div className='detail-page'>
         <div className="d-flex detailCard-container">
           <button onClick={handleNavigate} type="button" className="getBack-btn"><FontAwesomeIcon icon={faArrowLeft}/> VOLVER </button>
-          <div className="d-flex responsiveCard">
-            <img style={{minWidth:500 + 'px', maxWidth:500 + 'px'}} src={pictureurl !== undefined? pictureurl: ''} alt={title}/>
+          <div className="d-flex justify-content-center responsiveCard">
+            <img src={pictureurl !== undefined? pictureurl: ''} alt={title}/>
             <div className="d-flex flex-column px-5 detailCard">
               <div>
                 <h2>{title}</h2>
