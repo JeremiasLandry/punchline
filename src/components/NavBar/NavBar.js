@@ -7,7 +7,8 @@ import { CartContext } from '../../context/CartContext'
 import './NavBar.css';
 
 const logoStyle = {
-    maxWidth:'200px'
+    maxWidth:'200px',
+    padding:'10px 30px'
 }
 
 function NavBar(){

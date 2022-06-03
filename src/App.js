@@ -17,11 +17,12 @@ function App() {
         <Routes>
           <Route path='/' element={<ItemListContainer/>}/>
           <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
+          <Route path='/category/:categoryId/:pageNumber' element={<ItemListContainer/>}/>
           <Route path='/page/:pageNumber' element={<ItemListContainer/>}/>
           <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
           <Route path='/cart' element={<Cart/>}/>
           <Route path='/checkout' element={<Checkout/>}/>
-          <Route path='*' element={<Navigate to='/'/>}/>
+          {/* <Route path='*' element={<Navigate to='/'/>}/> */}
         </Routes>
         <Footer/>
       </BrowserRouter>

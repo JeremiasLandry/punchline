@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './Pagination.css'
 
-const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
+const Pagination = ({ postsPerPage, totalPosts, paginate, category='menu'}) => {
   const pageNumbers = [];
+  const { categoryId } = useParams();
 
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pageNumbers.push(i);
@@ -14,7 +15,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
       <ul className='pagination'>
         {pageNumbers.map(number => (
           <li key={number} className='page-item'>
-            <Link onClick={() => paginate(number)} to='/page/{number}' className='page-link'>
+            <Link onClick={() => paginate(number)} to= {category === 'other'? `/category/${categoryId}/{number}` : '/page/{number}'} className='page-link'>
               {number}
             </Link>
           </li>

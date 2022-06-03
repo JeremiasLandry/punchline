@@ -73,7 +73,16 @@ function ItemListContainer(){
                                     paginate={paginate}
                                 />
                              </div>
-                            : <ItemList items={productos}/>
+                            : <div className='pageContainer'>
+                                 <ItemList items={currentPosts}/>
+                                 <Pagination
+                                    postsPerPage={postsPerPage}
+                                    totalPosts={productos.length}
+                                    paginate={paginate}
+                                    category='other'
+                                    
+                                />
+                         </div>
                         }
                         </div>
                 }

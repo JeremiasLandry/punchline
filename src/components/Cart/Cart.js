@@ -26,7 +26,7 @@ const Cart = () => {
   }
 
   return (
-      <div className="container my-5" style={{maxWidth:800+'px',height:100+'vh'}}>
+      <div className="container my-5" style={{maxWidth:800+'px',minHeight:100+'vh'}}>
           <h2 className='mainTitle'>TU COMPRA</h2>
           <hr/>
 
