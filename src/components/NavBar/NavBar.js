@@ -31,7 +31,7 @@ function NavBar(){
                         {
                             cartQuantity() !== 0
                             ? <CartWidget/>
-                            : console.log('no hay items en el carrito')
+                            : ''
                         }
                     </div>
                 </div>

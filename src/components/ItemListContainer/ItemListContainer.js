@@ -13,7 +13,8 @@ const catalogoContainer = {
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    padding: '10px'
+    padding: '10px',
+    minWidth:'100%'
 }
 
 
