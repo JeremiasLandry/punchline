@@ -13,23 +13,23 @@ const catalogoContainer = {
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    padding: '10px',
+    padding: '0',
     minWidth:'100%'
 }
 
 
-function ItemListContainer(){
+function ItemListContainer({categoryProp, currentPage, setCurrentPage}){
     const [productos,setProductos] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [currentPage, setCurrentPage] = useState(1);
+    
     const [postsPerPage] = useState(6);
     const { categoryId } = useParams();
-
+    
     useEffect(() => {
         setLoading(true);
 
         const productosRef = collection(db, 'productos')
-        const q = categoryId ? query(productosRef, where('category', '==', categoryId)) : productosRef
+        const q = categoryId ? query(productosRef, where('category', '==', categoryId)) : query(productosRef, where('category', '==', 'buzos'))
 
         getDocs(q)
             .then(resp => {
@@ -57,33 +57,18 @@ function ItemListContainer(){
                     ? <div className="loader-container"><Loader/></div>
                     : <div style={catalogoContainer}>
                         <h1 className='mainTitle' style={{ textTransform: 'uppercase'}}>
-                        {
-                            categoryId === undefined
-                            ? 'CATÁLOGO'
-                            : [categoryId]
-                        }
+                        {categoryProp}
                         </h1>
-                        {
-                            categoryId === undefined
-                            ? <div className='pageContainer'>
-                                <ItemList items={currentPosts}/>
-                                <Pagination
-                                    postsPerPage={postsPerPage}
-                                    totalPosts={productos.length}
-                                    paginate={paginate}
-                                />
-                             </div>
-                            : <div className='pageContainer'>
+                            <div className='pageContainer'>
                                  <ItemList items={currentPosts}/>
                                  <Pagination
                                     postsPerPage={postsPerPage}
                                     totalPosts={productos.length}
                                     paginate={paginate}
-                                    category='other'
+                                    category={categoryProp}
                                     
-                                />
-                         </div>
-                        }
+                                 />
+                            </div>
                         </div>
                 }
 

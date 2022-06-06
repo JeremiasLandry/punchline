@@ -1,0 +1,33 @@
+.contact-container{
+    display:flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items:center;
+    min-height:100vh;
+    max-width: 100vw;
+}
+.contact-container p{
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+}
+.contact-container .checkout-form{
+    margin: 0;
+    width: 100%;
+}
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+
+}
+#message-box{
+    display: flex;
+    align-items: flex-end;
+    align-content: flex-end;
+    height:100px;
+    text-align: center;
+    border: 2px solid #ed008c;
+}

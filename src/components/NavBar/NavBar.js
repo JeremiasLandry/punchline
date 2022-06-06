@@ -24,11 +24,8 @@ function NavBar(){
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
                         <NavLink className="nav-link navLink-style" aria-current="page" to="/">INICIO</NavLink>
-                        <NavLink className="nav-link navLink-style" to="/category/accesorios">ACCESORIOS</NavLink>
-                        <NavLink className="nav-link navLink-style" to="/category/calzados">CALZADOS</NavLink>
-                        <NavLink className="nav-link navLink-style" to="/category/buzos">BUZOS</NavLink>
-                        <NavLink className="nav-link navLink-style" to="/category/pantalones">PANTALONES</NavLink>
-                        <NavLink className="nav-link navLink-style" to="/category/camperas">CAMPERAS</NavLink>
+                        <NavLink className="nav-link navLink-style" to="/tienda/buzos">TIENDA</NavLink>
+                        <NavLink className="nav-link navLink-style" to="/contacto">CONTACTO</NavLink>
                         {
                             cartQuantity() !== 0
                             ? <CartWidget/>

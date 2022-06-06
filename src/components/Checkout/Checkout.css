@@ -8,16 +8,19 @@
 }
 
 .checkout-form{
+    align-self: center;
     border: none;
     border-radius:0;
     border-bottom: 2px solid #ed008c;
     outline:none;
     font-family: 'Oswald', sans-serif;
     padding: 10px 5px ;
-    width: 100%;
+    margin: auto 2.5%;
+    width: 95%;
     color:#ed008c;
     margin-bottom:25px;
 }
+
 .checkout-form::placeholder{
     color: #ed008c;
     font-weight:500;

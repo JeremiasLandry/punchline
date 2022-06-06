@@ -1,0 +1,28 @@
+.category-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items:center;
+}
+.shop-filter-btn{
+    color:#ed008c;
+    border: 2px solid #ed008c;
+    margin:5px 5px;
+    background-color: #fff;
+    border-radius:20px;
+    padding: 15px;
+    transition: background-color .2s ease-in-out;
+    text-decoration: none;
+}
+.shop-filter-btn:hover{
+    background-color: #ed008c;
+    color: #fff;
+}
+.shop-filter-btn:active{
+    background-color: #ed008c;
+    color: #fff;
+}
+.shop-filter-btn:focus{
+    background-color: #ed008c;
+    color: #fff;
+}
