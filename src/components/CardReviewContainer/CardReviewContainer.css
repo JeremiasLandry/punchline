@@ -1,0 +1,10 @@
+.reviews{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items:flex-start;
+    align-content: flex-start;
+    margin-top: 80px;
+    flex-wrap: wrap;
+    padding: 0;
+}

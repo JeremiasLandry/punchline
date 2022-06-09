@@ -7,8 +7,9 @@ import Cart from './components/Cart/Cart'
 import { CartProvider } from './context/CartContext'
 import Checkout from './components/Checkout/Checkout'
 import Footer from './components/Footer/Footer';
-import Contact from './components/Contact/Contact'
-import Shop from './components/Shop/Shop'
+import Contact from './components/Contact/Contact';
+import Shop from './components/Shop/Shop';
+import Home from './components/Home/Home';
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
       <BrowserRouter>
         <NavBar/>
         <Routes>
-          <Route path='/' element={<ItemListContainer/>}/>
+          <Route path='/' element={<Home/>}/>
           <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
           <Route path='/category/:categoryId/:pageNumber' element={<ItemListContainer/>}/>
           <Route path='/page/:pageNumber' element={<ItemListContainer/>}/>
