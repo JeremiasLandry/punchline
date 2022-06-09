@@ -12,7 +12,7 @@ const itemStyle = {
 
 function Item({id, title, price, pictureurl}){
   console.log(pictureurl)
-    return(<li key={id} style={itemStyle}>
+    return(<li key={id} style={itemStyle} className='li-product'>
             <Link className='cardLink' to={`/item/${id}`}>
                 <div className="card" style={{width: 18+'rem'}}>
                     <img src={pictureurl} className="card-img-top" alt={title}/>

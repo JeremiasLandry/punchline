@@ -43,6 +43,7 @@ const Home = () => {
                 </div>
             </Link>
         </div>
+        <Link to='/tienda/buzos'><img src={require('./mainbannermMOBILE.png')} className='mobileBanner'/></Link>
         <h1 className="mainTitle">DESTACADOS</h1>
         <ItemList items={productosDestacados}/>
         <div className='reviews-clip-container'>
@@ -62,14 +63,14 @@ const Home = () => {
                             <li className='d-flex flex-column align-items-center justify-content-center'>
                                 <img src={require('./garantia.png')}/>
                                 <div className='d-flex align-items-baseline mt-5'>
-                                    <FontAwesomeIcon icon={faCheck} className='check'/>
+                                    <FontAwesomeIcon icon={faCheck} className='check' style={{marginRight:5+'px'}}/>
                                     <p style={{textAlign: 'center'}}>GARANTÍA DE DEVOLUCIÓN GRATUITA DEL PRODUCTO</p>                                    
                                 </div>
                             </li>
                             <li className='d-flex flex-column align-items-center'>
                                 <img src={require('./devolver.png')}/>
                                 <div className='d-flex align-items-baseline mt-5'>
-                                    <FontAwesomeIcon icon={faCheck} className='check'/>
+                                    <FontAwesomeIcon icon={faCheck} className='check' style={{marginRight:5+'px'}}/>
                                     <p style={{textAlign: 'center'}}>GARANTÍA DE DEVOLUCIÓN DE DINERO</p>
                                 </div>
                             </li>
@@ -80,14 +81,14 @@ const Home = () => {
                             <li className='d-flex flex-column align-items-center'>
                                 <img src={require('./treintadias.png')}/>
                                 <div className='d-flex align-items-baseline mt-5'>
-                                    <FontAwesomeIcon icon={faCheck} className='check'/>
+                                    <FontAwesomeIcon icon={faCheck} className='check' style={{marginRight:5+'px'}}/>
                                     <p style={{textAlign: 'center'}}>30 DÍAS DE GARANTÍA DE DEVOLUCIÓN</p>                                    
                                 </div>
                             </li>
                             <li className='d-flex flex-column align-items-center'>
                                 <img src={require('./envios.png')}/>
                                 <div className='d-flex align-items-baseline mt-5'>
-                                    <FontAwesomeIcon icon={faCheck} className='check'/>
+                                    <FontAwesomeIcon icon={faCheck} className='check' style={{marginRight:5+'px'}}/>
                                     <p style={{textAlign: 'center'}}>ENVIOS GRATUITOS A PARTIR DE $15.000</p>
                                 </div>
                             </li>
