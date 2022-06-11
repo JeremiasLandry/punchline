@@ -1,5 +1,5 @@
 import React from 'react'
-import { useContext, useState} from 'react'
+import { useContext, useState, useEffect} from 'react'
 import { CartContext } from '../../context/CartContext'
 import { db } from '../../firebase/config'
 import { collection, getDoc, addDoc, Timestamp, doc, updateDoc} from 'firebase/firestore'
@@ -14,22 +14,22 @@ const Checkout = () => {
 
   const {cart, cartTotal, clearCart} = useContext(CartContext)
 
-  const [orderId, setOrderId] = useState(null)
-  const [loaderState, setLoaderState] = useState(false)
+
+  const [orderId, setOrderId] = useState(null);
+  const [loaderState, setLoaderState] = useState(false);
   const [values, setValues]  = useState({
       nombre:'',
       email: '',
       tel:'',
       apellido:'',
       confirmEmail:''
-  })
+  });
   const [errorMessage,setErrorMessage] = useState({
     empty: false,
     wrongTel:false,
     emailCheck:false,
     stock:false
   });
-
 
   const handelInputChange = (e) => {
     if (e.target.name === 'tel'){
@@ -44,6 +44,7 @@ const Checkout = () => {
         })
     }
   }
+
 
   const handleSubmit = (e) =>{
       e.preventDefault();
@@ -72,6 +73,7 @@ const Checkout = () => {
         })
       }else{
         setLoaderState(true)
+
         const orden = {
             items:cart,
             total: cartTotal(),
@@ -81,33 +83,41 @@ const Checkout = () => {
         
         
         const ordersRef = collection(db, 'orders')
-    
+        
+        
         cart.forEach((item) => {
-            const docRef = doc(db, 'productos', item.id)
-    
-            getDoc(docRef)
-                .then((doc)=>{
-                    if (doc.data().stock >= item.count) {
-                        updateDoc(docRef, {
-                            stock:doc.data().stock - item.count
-                        })
-                        addDoc(ordersRef, orden)
-                            .then((doc) => {
-                                setOrderId(doc.id)
-                                clearCart()
-                            })
-                        
-                    } else {
-                        setErrorMessage({
-                            ...errorMessage,
-                            stock:true
-                          }) 
-                    }
-                })
+            if(orderId === null){
+        
+                const docRef = doc(db, 'productos', item.id)
+                getDoc(docRef)
+                    .then((doc)=>{
+                        if (doc.data().stock >= item.count) {
+                            if(!errorMessage.stock){
+                                updateDoc(docRef, {
+                                    stock:doc.data().stock - item.count
+                                });                                           
+                            }
+                        } else {
+                            setErrorMessage({
+                                ...errorMessage,
+                                stock:true
+                            }) 
+                        }
+                    })                  
+            }
         });
+
+        if(!errorMessage.stock){
+            addDoc(ordersRef, orden)
+            .then((doc) => {
+                setOrderId(doc.id)
+                clearCart()           
+            })
+        }
+
       }
       
-    }
+  }
   
   
 
@@ -183,9 +193,7 @@ const Checkout = () => {
                  ? <Warning titulo='CAMPOS VACÍOS' mensaje='Asegúrate de no dejar campos vacíos.'/>
                  : errorMessage.wrongTel 
                    ? <Warning titulo='UTILIZA NÚMEROS' mensaje='Asegurate de introducir números en el campo "Telefono".'/>
-                   : errorMessage.emailCheck
-                     ? <Warning titulo='AVISO' mensaje=' Asegurate de que las direcciones email coincidan.' boton='ENTENDIDO'/>
-                     : ''
+                   : errorMessage.emailCheck ? <Warning titulo='AVISO' mensaje=' Asegurate de que las direcciones email coincidan.' boton='ENTENDIDO'/> : ''    
             }
             {
                 errorMessage.stock
