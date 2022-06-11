@@ -3,18 +3,12 @@ import { Link } from 'react-router-dom';
 import './Item.css'
 import Loader from '../Loader/Loader.js'
 
-const itemStyle = {
-    listStyleType:'none',
-    margin:'20px 5px',
-    textDecoration:"none"
-}
-
 
 function Item({id, title, price, pictureurl}){
   console.log(pictureurl)
-    return(<li key={id} style={itemStyle} className='li-product'>
+    return(<li key={id} className='li-product'>
             <Link className='cardLink' to={`/item/${id}`}>
-                <div className="card" style={{width: 18+'rem'}}>
+                <div className="card" >
                     <img src={pictureurl} className="card-img-top" alt={title}/>
                     <div className="card-body d-flex flex-column">
                         <h5 className="card-title">{title}</h5>

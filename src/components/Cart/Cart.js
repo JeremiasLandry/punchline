@@ -32,11 +32,11 @@ const Cart = () => {
 
           {
               cart.map((item) => (
-                  <div key={item.id} className='d-flex my-5' style={{backgroundColor:'#212529', color:'#fff'}}>
-                      <img style={{maxWidth:250+'px',minWidth:200+'px',maxHeight:250+'px'}} src={item.pictureurl !== undefined? item.pictureurl : console.log('error')} alt={item.title}/>
+                  <div key={item.id} className='d-flex my-5 cart-card' style={{backgroundColor:'#212529', color:'#fff'}}>
+                      <img src={item.pictureurl !== undefined? item.pictureurl : console.log('error')} alt={item.title}/>
                       <div className="d-flex flex-column mx-5 justify-content-between">
                         <div className="d-flex flex-column">
-                            <h4 className='py-2'>{item.title}</h4>
+                            <h4 className='py-2 item-title'>{item.title}</h4>
                             <p className='fuente'>Cantidad: {item.count}</p>
                             <p className='fuente'>Talle: {item.size}</p>
                             <h5>Precio: ${item.price * item.count}</h5>

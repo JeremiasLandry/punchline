@@ -24,3 +24,23 @@
     background-color:#db57a4;
     border-color:#db57a4;
 }
+.cart-card img{
+    max-width:250px;
+    min-width:200px;
+    max-height:250px
+}
+@media screen and (max-width:680px){
+    .cart-card{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .cart-card img{
+        min-width: 100%;
+        height: auto;
+        min-height: 350px;
+    }
+    .item-title{
+        margin-top:5px;
+    }
+}

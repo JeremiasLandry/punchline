@@ -15,7 +15,6 @@ const Checkout = () => {
   const {cart, cartTotal, clearCart} = useContext(CartContext)
 
   const [orderId, setOrderId] = useState(null)
-  const [aviso, setAviso] = useState(false)
   const [loaderState, setLoaderState] = useState(false)
   const [values, setValues]  = useState({
       nombre:'',
@@ -24,27 +23,62 @@ const Checkout = () => {
       apellido:'',
       confirmEmail:''
   })
+  const [errorMessage,setErrorMessage] = useState({
+    empty: false,
+    wrongTel:false,
+    emailCheck:false,
+    stock:false
+  });
 
 
   const handelInputChange = (e) => {
-      setValues({
-         ...values,
-         [e.target.name]: e.target.value
-      })
+    if (e.target.name === 'tel'){
+        setValues({
+            ...values,
+            [e.target.name]:  Number(e.target.value)
+        })
+    }else{
+        setValues({
+            ...values,
+            [e.target.name]: e.target.value
+        })
+    }
   }
 
   const handleSubmit = (e) =>{
       e.preventDefault();
-      if (values.email === values.confirmEmail){
-          setAviso(false);
-          setLoaderState(true)
-          const orden = {
+
+      setErrorMessage({
+        empty: false,
+        wrongTel:false,
+        emailCheck:false,
+        stock:false
+      });
+
+      if(values.nombre === '' || values.apellido === '' || values.email === '' || values.tel === '' || values.confirmEmail === ''){
+        setErrorMessage({
+            ...errorMessage,
+            empty: true
+        })
+      }else if (!(typeof(values.tel) === 'number') || isNaN(values.tel)){
+        setErrorMessage({
+            ...errorMessage,
+            wrongTel:true
+        })
+      }else if(values.email !== values.confirmEmail){
+        setErrorMessage({
+          ...errorMessage,
+          emailCheck:true
+        })
+      }else{
+        setLoaderState(true)
+        const orden = {
             items:cart,
             total: cartTotal(),
             buyer:{...values},
             fechaYhora: Timestamp.fromDate(new Date())
-            
         }
+        
         
         const ordersRef = collection(db, 'orders')
     
@@ -64,16 +98,18 @@ const Checkout = () => {
                             })
                         
                     } else {
-                        alert('no hay stock') //reemplazar por componente modal.
+                        setErrorMessage({
+                            ...errorMessage,
+                            stock:true
+                          }) 
                     }
                 })
         });
-      }else{
-          setAviso(true)  
       }
-
-    
-  }
+      
+    }
+  
+  
 
   if(orderId){
       return (<div className='container my-5' style={{height:100+'vh'}}>
@@ -143,8 +179,17 @@ const Checkout = () => {
 
             <button className="add-to-cart-btn my-3" type='submit'>ENVIAR</button>
             {
-                aviso
-                ? <Warning titulo='AVISO' mensaje=' Asegurate de que las direcciones email coincidan.' boton='ENTENDIDO'/>
+                 errorMessage.empty
+                 ? <Warning titulo='CAMPOS VACÍOS' mensaje='Asegúrate de no dejar campos vacíos.'/>
+                 : errorMessage.wrongTel 
+                   ? <Warning titulo='UTILIZA NÚMEROS' mensaje='Asegurate de introducir números en el campo "Telefono".'/>
+                   : errorMessage.emailCheck
+                     ? <Warning titulo='AVISO' mensaje=' Asegurate de que las direcciones email coincidan.' boton='ENTENDIDO'/>
+                     : ''
+            }
+            {
+                errorMessage.stock
+                ? <Warning titulo='LO SENTIMOS' mensaje='Uno de los productos de tu carrito se ha quedado sin stock. Vuelve a intentarlo mas tarde...'/>
                 : ''
             }
             {

@@ -51,14 +51,16 @@ const ItemDetail = ({productDetail}) => {
           <div className="d-flex responsiveCard">
             <img src={pictureurl !== undefined? pictureurl: ''} alt={title}/>
             <div className="d-flex flex-column px-5 detailCard">
-              <div>
+              <div className='item-detail-main-info'>
                 <h2>{title}</h2>
                 <p className='price'>${price}</p>
                 <h3 className='fuente'>Color: <small>{color}</small></h3>
                 <p className='fuente'> El tiempo de entrega es de 2-4 días laborables</p>
-                <p className='fuente checkInfo'><FontAwesomeIcon icon={faCheck}/> Garantía de devolución gratuita</p>
-                <p className='fuente checkInfo'><FontAwesomeIcon icon={faCheck}/> Garantía de devolución de dinero</p>
-                <p className='fuente checkInfo'><FontAwesomeIcon icon={faCheck}/> 30 días de garantía de devolución</p>
+                <div className='checkInfo-container'>
+                  <p className='fuente checkInfo'><FontAwesomeIcon icon={faCheck}/> Garantía de devolución gratuita</p>
+                  <p className='fuente checkInfo'><FontAwesomeIcon icon={faCheck}/> Garantía de devolución de dinero</p>
+                  <p className='fuente checkInfo'><FontAwesomeIcon icon={faCheck}/> 30 días de garantía de devolución</p>
+                </div>
               </div>
               { stock === 0 && <p style={{color: 'red', fontWeight: '700'}}>¡Sin stock disponible!</p> }
               

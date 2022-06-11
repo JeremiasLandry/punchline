@@ -1,7 +1,7 @@
 import React from 'react'
 
 const SizePicker = ({size,setSize}) => {
-  return (<div className='d-flex flex-column'>
+  return (<div className='d-flex flex-column size-picker'>
             <h3 style={{fontSize:1.4 +'em',fontWeight:100}}>Talla: {size}</h3>
             <div className='d-flex'>
                 <button onClick={()=> setSize('Large')} className='sizes-btn'>Large</button>
