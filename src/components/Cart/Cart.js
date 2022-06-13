@@ -1,11 +1,16 @@
 import React from 'react'
 import { CartContext } from '../../context/CartContext'
-import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useContext, useEffect} from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './Cart.css'
 
 const Cart = () => {
   const { cart, clearCart, removeItem, cartTotal} = useContext(CartContext);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const buttonStyle = {
     maxWidth:'200px',

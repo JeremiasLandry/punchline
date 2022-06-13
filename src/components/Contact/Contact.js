@@ -1,13 +1,16 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './Contact.css';
 import { collection, addDoc, Timestamp} from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import Loader from '../Loader/Loader';
-import { Link } from 'react-router-dom';
+import { Link,  useLocation} from 'react-router-dom';
 import Warning from '../Warning/Warning'
 
 
 function Contact() {
+    const { pathname } = useLocation();
+
+    
     const [messageState, setMessageState] = useState(null);
     const [loader, setLoader] = useState(false);
     const [aviso, setAviso] = useState(false);
@@ -19,12 +22,16 @@ function Contact() {
     });
     
     const [values, setValues]= useState ({
-      nombre:'',
-      email:'',
-      tel: '',
-      apellido:'',
-      message:''
+        nombre:'',
+        email:'',
+        tel: '',
+        apellido:'',
+        message:''
     });
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname, messageState]);
 
     const handleInputChange= (e) => {
         if (e.target.name === 'tel'){

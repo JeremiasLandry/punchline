@@ -3,7 +3,7 @@ import { useContext, useState, useEffect} from 'react'
 import { CartContext } from '../../context/CartContext'
 import { db } from '../../firebase/config'
 import { collection, getDoc, addDoc, Timestamp, doc, updateDoc} from 'firebase/firestore'
-import { Navigate, Link} from 'react-router-dom'
+import { Navigate, Link, useLocation} from 'react-router-dom'
 import './Checkout.css'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
@@ -13,7 +13,7 @@ import Loader from '../Loader/Loader'
 const Checkout = () => {
 
   const {cart, cartTotal, clearCart} = useContext(CartContext)
-
+  const { pathname } = useLocation();
 
   const [orderId, setOrderId] = useState(null);
   const [loaderState, setLoaderState] = useState(false);
@@ -30,6 +30,10 @@ const Checkout = () => {
     emailCheck:false,
     stock:false
   });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname, orderId]);
 
   const handelInputChange = (e) => {
     if (e.target.name === 'tel'){

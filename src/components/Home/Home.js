@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { collection, getDocs, query, limit} from 'firebase/firestore'
 import { db } from '../../firebase/config'
 import Banner from './mainbanner.png'
@@ -15,6 +15,10 @@ import './Home.css';
 const Home = () => {
   const [loading, setLoading] = useState(false);
   const [productosDestacados,setProductosDestacados] = useState([]);
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
     setLoading(true);

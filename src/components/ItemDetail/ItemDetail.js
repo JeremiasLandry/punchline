@@ -1,9 +1,8 @@
 import React from 'react'
-import { useNavigate, Link} from 'react-router-dom';
+import { useNavigate, Link, useLocation} from 'react-router-dom';
 import './ItemDetail.css';
 import ItemCount from '../ItemCount/ItemCount'
-import { useState } from 'react';
-import { useContext } from 'react';
+import { useState, useEffect, useContext} from 'react';
 import { CartContext } from '../../context/CartContext'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowLeft, faCheck} from '@fortawesome/free-solid-svg-icons';
@@ -20,12 +19,18 @@ const options = [
 
 const ItemDetail = ({productDetail}) => {
   const {id, title, price, pictureurl, stock, color} = productDetail;
+  const { pathname } = useLocation();
 
   const navigate = useNavigate();
   
   const handleNavigate = () => {
     navigate(-1)
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
 
   const [count, setCount] = useState(0);
   const [size, setSize] = useState('Large');

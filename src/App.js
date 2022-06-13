@@ -17,19 +17,19 @@ function App() {
     <CartProvider>
       <BrowserRouter>
         <NavBar/>
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
-          <Route path='/category/:categoryId/:pageNumber' element={<ItemListContainer/>}/>
-          <Route path='/page/:pageNumber' element={<ItemListContainer/>}/>
-          <Route path='/tienda/:categoryId/:pageNumber' element={<Shop/>}/>
-          <Route path='/tienda/:categoryId' element={<Shop/>}/>
-          <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
-          <Route path='/cart' element={<Cart/>}/>
-          <Route path='/checkout' element={<Checkout/>}/>
-          <Route path='/contacto' element={<Contact/>}/>
-          <Route path='*' element={<Navigate to='/'/>}/>
-        </Routes>
+          <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
+            <Route path='/category/:categoryId/:pageNumber' element={<ItemListContainer/>}/>
+            <Route path='/page/:pageNumber' element={<ItemListContainer/>}/>
+            <Route path='/tienda/:categoryId/:pageNumber' element={<Shop/>}/>
+            <Route path='/tienda/:categoryId' element={<Shop/>}/>
+            <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
+            <Route path='/cart' element={<Cart/>}/>
+            <Route path='/checkout' element={<Checkout/>}/>
+            <Route path='/contacto' element={<Contact/>}/>
+            <Route path='*' element={<Navigate to='/'/>}/>
+          </Routes>
         <Footer/>
       </BrowserRouter>
     </CartProvider>
