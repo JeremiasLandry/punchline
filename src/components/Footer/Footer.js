@@ -17,7 +17,7 @@ const Footer = () => {
         </div>
         <div className="Footer-terms">
             <Link to='/'>PRIVACY + TERMS</Link>
-            <small>2022 - Creado por Jeremías Landry</small>
+            <small>2022 - Created by Kabait</small>
         </div>
     </div>
   )
